@@ -43,7 +43,7 @@ git clone https://github.com/m-uszynski/fitapp.git
 ```
 * Run `Update-Database` in Package Manager Console (to create database and seed data)
 * Build and run solution to load website in browser
-* Admin login: 'admin', Admin password: 'qwerty'
+* Admin login: `admin`, Admin password: `qwerty`
 
 ## Authors
 Piotr Jasiński, Konrad Wilczek, Mateusz Uszyński
