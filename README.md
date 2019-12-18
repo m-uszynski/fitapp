@@ -4,9 +4,8 @@ This is a FitApp - web application which allows to monitor users' lifestyles.
 The FitApp allows users to plan - daily calories, meals, trenings etc.
 
 ## Technologies
-* ASP.NET 4.6.1
+* ASP.NET MVC
 * Entity Framework 6
-* MVC 5+
 
 ## Environment
 * Visual Studio 2017
