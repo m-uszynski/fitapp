@@ -45,4 +45,6 @@ git clone https://github.com/m-uszynski/fitapp.git
 * Admin login: `admin`, Admin password: `qwerty`
 
 ## Authors
-Piotr Jasiński, Konrad Wilczek, Mateusz Uszyński
+* Piotr Jasiński
+* Konrad Wilczek
+* Mateusz Uszyński
