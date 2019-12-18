@@ -1,0 +1,48 @@
+﻿@model IEnumerable<FitApp.Models.ExerciseAdmin>
+@{
+    ViewBag.Title = "Example";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Przykładowe ćwiczenia</h2>
+
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ExerciseName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VideoLink)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BurnedCalories)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.ExerciseName
+            </td>
+            <td>
+                @item.VideoLink
+            </td>
+            <td>
+                @item.BurnedCalories
+            </td>
+            <td>
+                @item.Description
+            </td>
+            <td>
+                @Html.Raw(@Html.ActionLink("Dodaj", "ExampleAdd", new { @Id = item.Id, @idx = ViewBag.ident }, new { @class = "btn btn-danger" }))
+            </td>
+        </tr>
+    }
+</table>
+

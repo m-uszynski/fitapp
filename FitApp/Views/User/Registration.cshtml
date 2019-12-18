@@ -1,0 +1,137 @@
+﻿@model FitApp.Models.User
+
+@{
+    ViewBag.Title = "Registration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="userform">
+
+    <h3>Rejestracja</h3>
+    <hr /><br />
+    @if (ViewBag.Status != null && Convert.ToBoolean(ViewBag.Status))
+    {
+        <div class="alert alert-success">
+            <strong>Sukces!</strong>@ViewBag.Message
+        </div>
+    }
+    else
+    {
+        using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <di>
+
+                @Html.ValidationSummary(true, "")
+                <div>
+                    @Html.LabelFor(model => model.Name)
+                    <div>
+                        @Html.EditorFor(model => model.Name)
+                        @Html.ValidationMessageFor(model => model.Name)
+                    </div>
+                </div>
+
+                <div>
+                    @Html.LabelFor(model => model.Surname)
+                    <div>
+                        @Html.EditorFor(model => model.Surname)
+                        @Html.ValidationMessageFor(model => model.Surname)
+                    </div>
+                </div>
+
+                <div>
+                    @Html.LabelFor(model => model.Login)
+                    <div>
+                        @Html.EditorFor(model => model.Login)
+                        @Html.ValidationMessageFor(model => model.Login)
+                        @Html.ValidationMessage("LoginExists")
+                    </div>
+                </div>
+
+                <div>
+                    @Html.LabelFor(model => model.Password)
+                    <div>
+                        @Html.EditorFor(model => model.Password)
+                        @Html.ValidationMessageFor(model => model.Password)
+                    </div>
+                </div>
+
+                <div>
+                    @Html.LabelFor(model => model.ConfirmPassword)
+                    <div>
+                        @Html.EditorFor(model => model.ConfirmPassword)
+                        @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                    </div>
+                </div>
+
+                <div>
+                    @Html.LabelFor(model => model.Email)
+                    <div>
+                        @Html.EditorFor(model => model.Email)
+                        @Html.ValidationMessageFor(model => model.Email)
+                        @Html.ValidationMessage("EmailExists")
+                    </div>
+                </div>
+
+                <div>
+                    @Html.LabelFor(model => model.BirthDay)
+                    <div>
+                        @Html.EditorFor(model => model.BirthDay)
+                        @Html.ValidationMessageFor(model => model.BirthDay)
+                    </div>
+                </div>
+
+                <div>
+                    @Html.LabelFor(m => m.Sex)
+                    <div>
+                        Mężczyzna @Html.RadioButtonFor(m => m.Sex, "Male")
+                        Kobieta @Html.RadioButtonFor(m => m.Sex, "Female")
+
+                    </div>
+                </div>
+
+
+
+
+
+                <div>
+                    <div>
+                        <script type="text/javascript">
+                            $(document).on('invalid-form.validate', 'form', function () {
+                                var button = $(this).find('input[type="submit"]');
+                                setTimeout(function () {
+                                    button.removeAttr('disabled');
+                                }, 1);
+                            });
+                            $(document).on('submit', 'form', function () {
+                                var button = $(this).find('input[type="submit"]');
+                                setTimeout(function () {
+                                    button.attr('disabled', 'disabled');
+                                }, 0);
+                            });
+                        </script>
+
+                        <input type="submit" value="Stwórz konto" class="submitbutton" />
+                        <br /><br />Masz już konto? &nbsp;@Html.ActionLink("Zaloguj się", "Login", "User", new object { }, new { @class = "registerlink" })
+                    </div>
+                </div>
+
+            </di>
+
+            if (ViewBag.Message != null)
+            {
+                <div class="alert alert-danger">
+                    <strong>Error!</strong>@ViewBag.Message
+                </div>
+            }
+        }
+
+    }
+
+</div>
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

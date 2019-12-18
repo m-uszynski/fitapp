@@ -1,0 +1,43 @@
+﻿@model FitApp.Models.Meal
+
+@{
+    ViewBag.Title = "SetDate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="userform">
+    <h3>Ustal datę posiłku</h3>
+    <hr />
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true, "")
+
+        <div>
+
+            <div>
+                @Html.LabelFor(u => u.MealDate)
+                <div>
+                    @Html.EditorFor(u => u.MealDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(u => u.MealDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div>
+                @Html.LabelFor(u => u.MealTime)
+                <div>
+                    @Html.EditorFor(u => u.MealTime, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(u => u.MealTime, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div>
+                <input type="submit" class="submitbutton" value="Ustaw datę" />
+            </div>
+
+        </div>
+    }
+
+</div>

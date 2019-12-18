@@ -1,0 +1,65 @@
+﻿@model IEnumerable<FitApp.Models.Task>
+
+@{
+    ViewBag.Title = "Zadania";
+}
+
+<h2>Realizacja zadania</h2>
+<p>
+    @Html.ActionLink("Sprawdź zrealizowane zadania", "Progress")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RealizationTime)
+        </th>
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RealizationTime)
+            </td>
+
+            <td>
+                <button data-task-id="@item.Id" class="btn btn-light btn-sm pull-right js-toggle-done">Zrobione?</button>
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $(".js-toggle-done").click(function (e) {
+                var button = $(e.target);
+                $.post("/api/done", { "": button.attr("data-task-id") })
+                    .done(function () {
+                        button
+                            .removeClass("btn-light")
+                            .addClass("btn-info")
+                            .text("Zrobione")
+                    })
+                    .fail(function () {
+                        alert("Coś poszło nie tak!");
+                    });
+            });
+
+        });
+    </script>
+
+}
+

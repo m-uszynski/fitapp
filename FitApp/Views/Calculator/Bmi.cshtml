@@ -1,0 +1,48 @@
+﻿@model FitApp.Models.Measurment
+
+@{
+    ViewBag.Title = "Bmi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="userform">
+    <h3>Pomiary</h3>
+    <hr />
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true, "")
+
+    <div>
+
+        <div>
+            @Html.LabelFor(m => m.Weight)
+            <div>
+                @Html.TextBoxFor(m => m.Weight, new { @Value = @ViewBag.Weight })
+                @Html.ValidationMessageFor(m => m.Weight)
+            </div>
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.Height)
+            <div>
+                @Html.TextBoxFor(m => m.Height, new { @Value = @ViewBag.Height })
+                @Html.ValidationMessageFor(m => m.Height)
+            </div>
+        </div>
+
+        <div>
+            <input type="submit" value="Oblicz BMI" class="submitbutton" />
+        </div>
+        <div class="userform">
+            <strong>@ViewBag.Message</strong>
+        </div>
+          
+
+
+    </div>
+    }
+</div>
+

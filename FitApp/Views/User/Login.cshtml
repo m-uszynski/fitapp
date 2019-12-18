@@ -1,0 +1,40 @@
+﻿@model FitApp.Models.User
+@{
+    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="userform">
+    <div>
+        <h3>Logowanie do systemu</h3>
+    </div>
+
+    <hr /><br />
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <div>
+            @Html.LabelFor(m => m.Login)
+        </div>
+        <div>
+            @Html.EditorFor(m => m.Login)
+            @Html.ValidationMessageFor(m => m.Login)
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.Password)
+        </div>
+        <div>
+            @Html.EditorFor(m => m.Password)
+            @Html.ValidationMessageFor(m => m.Password)
+        </div>
+        <input type="submit" value="Zaloguj" class="submitbutton" />
+    }
+    <br />
+    <div>
+        Nie masz konta?&nbsp;@Html.ActionLink("Zarejestruj się", "Registration", "User", new object { }, new { @class = "registerlink" })
+        Zapomniałeś hasło? @Html.ActionLink("Zresetuj hasło", "ForgotPassword", "User", new object { }, new { @class = "registerlink" })
+    </div>
+</div>

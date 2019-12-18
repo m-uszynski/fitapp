@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <title></title>
+</head>
+<body>
+    <div id="container">
+        <div id="logo">
+            LOGO
+            <div class="rightL">
+                @if(Request.IsAuthenticated)
+                {
+                    @Html.ActionLink("Wyloguj", "Logout", "User");
+                }
+            </div>
+            <div class="rightL">Witaj @HttpContext.Current.User.Identity.Name!</a></div>
+                       
+        </div>
+        <div id="menu">
+            <div class="option">@Html.ActionLink("Main page", "Index", "Home")</div>
+            <div class="option">@Html.ActionLink("About","About","Home")</div>
+            <div class="option">@Html.ActionLink("Contact", "Contact", "Home")</div>
+            <div style="clear:both"></div>
+        </div>
+
+        <div id="content">
+            <h1>Main page of FitnessApp</h1>
+
+        </div>
+        <div style="clear:both"></div>
+        <div id="footer">
+            STOPKA
+        </div>
+
+    </div>
+
+</body>
+</html>

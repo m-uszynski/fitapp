@@ -1,0 +1,55 @@
+﻿@model IEnumerable<FitApp.Models.Exercise>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List</h2>
+
+<p>
+    @Html.ActionLink("Wróć do treningów","List","Training", null, new { @class = "btn btn-info" })
+    @Html.ActionLink("Dodaj własne ćwiczenie do treningu", "Add", new { TrainingId = ViewBag.TrainingId }, new { @class = "btn btn-info" })
+    @Html.ActionLink("Wybierz ćwiczenie z gotowej listy", "Example", new { Controller = "Exercise", id = ViewBag.TrainingId}, new { @class = "btn btn-info"})
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ExerciseName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VideoLink)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BurnedCalories)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExerciseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VideoLink)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BurnedCalories)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.ActionLink("Usuń", "Delete", new { Id = item.Id}, new { @class = "btn btn-danger"})
+                <br />
+                @Html.ActionLink("Edytuj","Edit", new { Id = item.Id}, new { @class = "btn btn-primary" })
+            </td>
+        </tr>
+    }
+</table>

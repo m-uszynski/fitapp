@@ -1,0 +1,55 @@
+﻿@model IEnumerable<FitApp.Models.Meal>
+
+@{
+    ViewBag.Title = "AdminMeals";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Przygotowane posiłki</h2>
+<p>
+    @Html.ActionLink("Wróć do listy posiłków", "List", "Meal", null, new { @class = "btn btn-info" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MealName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MealCalories)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MealProteins)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MealFat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MealCarbs)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MealName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MealCalories)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MealProteins)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MealFat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MealCarbs)
+        </td>
+        <td>
+            @Html.ActionLink("Wybierz", "SelectMeal", new { id = item.Id }, new { @class = "btn btn-info" })
+        </td>
+    </tr>
+}
+
+</table>

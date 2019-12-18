@@ -1,0 +1,89 @@
+﻿@model FitApp.Models.User
+@{
+    ViewBag.Title = "Data";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DataUpdate</title>
+</head>
+<body>
+    <div class="userform">
+        <div>
+            <h3>Aktualizacja danych</h3>
+        </div>
+        <hr /><br />
+
+        @using (Html.BeginForm())
+        {
+            <div class="text-success">
+                @ViewBag.Message
+            </div>
+            @Html.ValidationSummary(true, "")
+            <div>
+                @Html.LabelFor(m => m.Name)
+            </div>
+            <div>
+                @Html.TextBoxFor(m => m.Name, new { @Value = @ViewBag.UserName })
+                @Html.ValidationMessageFor(m => m.Name)
+            </div>
+
+            <div>
+                @Html.LabelFor(m => m.Surname)
+            </div>
+            <div>
+                @Html.TextBoxFor(m => m.Surname, new { @Value = @ViewBag.UserSurname })
+                @Html.ValidationMessageFor(m => m.Surname)
+            </div>
+
+            <div>
+                @Html.LabelFor(m => m.Email)
+            </div>
+            <div>
+                @Html.TextBoxFor(m => m.Email, new { @Value = @ViewBag.UserEmail })
+                @Html.ValidationMessageFor(m => m.Email)
+            </div>
+
+            <div>
+                @Html.LabelFor(m => m.BirthDay)
+            </div>
+            <div>
+                @Html.TextBoxFor(m => m.BirthDay, new { @Value = @ViewBag.UserBirthDay })
+                @Html.ValidationMessageFor(m => m.BirthDay)
+            </div>
+
+            <div>
+                @Html.LabelFor(m => m.Sex)
+                <div>
+                    @if (@ViewBag.UserSex == "Female")
+                    {
+                        @:<div>
+                            @:Kobieta @Html.RadioButtonFor(m => m.Sex, "Female", new { @checked= true })
+                            @:Mężczyzna @Html.RadioButtonFor(m => m.Sex, "Male")
+                        @:</div>
+                    }
+                    else if (@ViewBag.UserSex == "Male")
+                    {
+                        @:<div>
+                            @:Mężczyzna @Html.RadioButtonFor(m => m.Sex, "Male", new { @checked = true })
+                            @:Kobieta @Html.RadioButtonFor(m => m.Sex, "Female")
+                        @:</div>
+                    }
+
+                </div>
+            </div>
+
+
+            <input type="submit" value="Aktualizuj" class="submitbutton" />
+
+
+        }
+
+
+    </div>
+    
+
+    
+</body>
+

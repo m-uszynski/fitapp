@@ -1,0 +1,80 @@
+﻿@model IEnumerable<FitApp.Models.Meal>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Posiłki do wyeksportowania</title>
+</head>
+<body>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MealName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MealCalories)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MealProteins)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MealFat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MealCarbs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MealDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MealTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MealName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MealCalories)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MealProteins)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MealFat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MealCarbs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MealDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MealTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "PdfPartialView", new { id = item.Id })
+
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

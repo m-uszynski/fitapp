@@ -1,0 +1,64 @@
+﻿@model FitApp.Models.Food
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="userform">
+    <h3>Edytuj produkt</h3>
+    <hr />
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true, "")
+
+    <div>
+
+        <div>
+            @Html.LabelFor(m => m.FoodName)
+            <div>
+                @Html.TextBoxFor(m => m.FoodName, new { @Value = @ViewBag.FoodName })
+                @Html.ValidationMessageFor(m => m.FoodName)
+            </div>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Calories)
+            <div>
+                @Html.TextBoxFor(m => m.Calories, new { @Value = @ViewBag.Calories })
+                @Html.ValidationMessageFor(m => m.Calories)
+            </div>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Fat)
+            <div>
+                @Html.TextBoxFor(m => m.Fat, new { @Value = @ViewBag.Fat })
+                @Html.ValidationMessageFor(m => m.Fat)
+            </div>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Proteins)
+            <div>
+                @Html.TextBoxFor(m => m.Proteins, new { @Value = @ViewBag.Proteins })
+                @Html.ValidationMessageFor(m => m.Proteins)
+            </div>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Carbs)
+            <div>
+                @Html.TextBoxFor(m => m.Carbs, new { @Value = @ViewBag.Carbs })
+                @Html.ValidationMessageFor(m => m.Carbs)
+            </div>
+        </div>
+
+        <div>
+            <input type="submit" class="submitbutton" value="Uaktualnij" />
+        </div>
+
+    </div>
+    }
+
+</div>

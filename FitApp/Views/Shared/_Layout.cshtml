@@ -1,0 +1,259 @@
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <title>FitnessApp</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <!-- sidebar -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class=".col-xs-6 .col-md-4 collapse out" id="sidebar">
+                <div class="list-group panel">
+                    @if (HttpContext.Current.User.Identity.Name == "".ToString())
+                    {
+                        <a href="#menu1" class="list-group-item collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false">
+                            <i class="fas fa-dumbbell"></i>
+                            <span class="hidden-sm-down">Treningi</span>
+                        </a>
+                        <div class="collapse" id="menu1">
+                            <a href="/User/Login" class="list-group-item" data-parent="#menu1">
+                                <i class="fas fa-folder-plus"></i>
+                                Dodaj Trening
+                            </a>
+                            <a href="/User/Login" class="list-group-item" data-parent="#menu1">
+                                <i class="fas fa-folder-open"></i>
+                                Przeglądaj Treningi
+                            </a>
+                        </div>
+                        <a href="#menu2" class="list-group-item collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false">
+                            <i class="fas fa-utensils"></i>
+                            <span class="hidden-sm-down">Dieta</span>
+                        </a>
+                        <div class="collapse" id="menu2">
+                            <a href="/User/Login" class="list-group-item" data-parent="#menu2">
+                                <i class="fas fa-folder-plus"></i>
+                                Dodaj Posiłek
+                            </a>
+                            <a href="/User/Login" class="list-group-item" data-parent="#menu2">
+                                <i class="fas fa-folder-open"></i>
+                                Przeglądaj Posiłki
+                            </a>
+                        </div>
+                        <a href="/User/Login" class="list-group-item collapsed" data-parent="#sidebar">
+                            <i class="fas fa-weight"></i>
+                            <span class="hidden-sm-down">Oblicz BMI</span>
+                        </a>
+                        <a href="/User/Login" class="list-group-item collapsed" data-parent="#sidebar">
+                            <i class="fas fa-ruler-vertical"></i>
+                            <span class="hidden-sm-down">Oblicz BMR</span>
+                        </a>
+                        <a href="#menu5" class="list-group-item collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false">
+                            <i class="fas fa-database"></i>
+                            <span class="hidden-sm-down">Uaktualnij dane</span>
+                        </a>
+                        <div class="collapse" id="menu5">
+                            <a href="/User/Login" class="list-group-item" data-parent="#menu1">
+                                <i class="fas fa-weight"></i>
+                                Dodaj pomiar
+                            </a>
+                            <a href="/User/Login" class="list-group-item" data-parent="#menu1">
+                                <i class="fas fa-history"></i>
+                                Przeglądaj historię
+                            </a>
+                        </div>
+                        <a href="#menu6" class="list-group-item collapsed" data-parent="#sidebar" data-toggle="collapse" aria-expanded="false">
+                            <i class="fas fa-users"></i>
+                            <span class="hidden-sm-down">Grupy</span>
+                        </a>
+                        <div class="collapse" id="menu6">
+                            <a href="/Group/List" class="list-group-item" data-parent="#menu6">
+                                <i class="fas fa-address-card"></i>
+                                Przeglądaj dostępne grupy
+                            </a>
+
+                        </div>
+                        <a href="/User/Login" class="list-group-item collapsed" data-parent="#sidebar">
+                            <i class="fas fa-history"></i>
+                            <span class="hidden-sm-down">Historia</span>
+                        </a>
+                        <a href="#menu8" class="list-group-item collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false">
+                            <i class="fas fa-cogs"></i>
+                            <span class="hidden-sm-down">Ustawienia</span>
+                        </a>
+                        <div class="collapse" id="menu8">
+                            <a href="/User/Login" class="list-group-item" data-parent="#menu8">
+                                <i class="fas fa-user-cog"></i>
+                                Twoje dane
+                            </a>
+                            <a href="/User/ForgotPassword" class="list-group-item" data-parent="#menu8">
+                                <i class="fas fa-lock"></i>
+                                Zmiana hasła
+                            </a>
+                        </div>
+                    }
+                    else
+                    {
+                        <a href="#menu1" class="list-group-item collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false">
+                            <i class="fas fa-dumbbell"></i>
+                            <span class="hidden-sm-down">Treningi</span>
+                        </a>
+                        <div class="collapse" id="menu1">
+                            <a href="/Training/Add" class="list-group-item" data-parent="#menu1">
+                                <i class="fas fa-folder-plus"></i>
+                                Dodaj Trening
+                            </a>
+                            <a href="/Training/List" class="list-group-item" data-parent="#menu1">
+                                <i class="fas fa-folder-open"></i>
+                                Przeglądaj Treningi
+                            </a>
+                        </div>
+                        <a href="#menu2" class="list-group-item collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false">
+                            <i class="fas fa-utensils"></i>
+                            <span class="hidden-sm-down">Dieta</span>
+                        </a>
+                        <div class="collapse" id="menu2">
+                            <a href="/Meal/Add" class="list-group-item" data-parent="#menu2">
+                                <i class="fas fa-folder-plus"></i>
+                                Dodaj Posiłek
+                            </a>
+                            <a href="/Meal/List" class="list-group-item" data-parent="#menu2">
+                                <i class="fas fa-folder-open"></i>
+                                Przeglądaj Posiłki
+                            </a>
+                        </div>
+                        <a href="/Calculator/Bmi" class="list-group-item collapsed" data-parent="#sidebar">
+                            <i class="fas fa-weight"></i>
+                            <span class="hidden-sm-down">Oblicz BMI</span>
+                        </a>
+                        <a href="/Calculator/Bmr" class="list-group-item collapsed" data-parent="#sidebar">
+                            <i class="fas fa-ruler-vertical"></i>
+                            <span class="hidden-sm-down">Oblicz BMR</span>
+                        </a>
+                        <a href="#menu5" class="list-group-item collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false">
+                            <i class="fas fa-database"></i>
+                            <span class="hidden-sm-down">Uaktualnij dane</span>
+                        </a>
+                        <div class="collapse" id="menu5">
+                            <a href="/Measurment/Add" class="list-group-item" data-parent="#menu5">
+                                <i class="fas fa-weight"></i>
+                                Dodaj pomiar
+                            </a>
+                            <a href="/Measurment/History" class="list-group-item" data-parent="#menu5">
+                                <i class="fas fa-history"></i>
+                                Przeglądaj historię
+                            </a>
+                        </div>
+                        <a href="#menu6" class="list-group-item collapsed" data-parent="#sidebar" data-toggle="collapse" aria-expanded="false">
+                            <i class="fas fa-users"></i>
+                            <span class="hidden-sm-down">Grupy</span>
+                        </a>
+                        <div class="collapse" id="menu6">
+                            <a href="/Group/Create" class="list-group-item" data-parent="#menu6">
+                                <i class="fas fa-folder-plus"></i>
+                                Stwórz grupę
+                            </a>
+                            <a href="/Group/Mine" class="list-group-item" data-parent="#menu6">
+                                <i class="fas fa-address-book"></i>
+                                Zarządzaj grupami
+                            </a>
+                            <a href="/Group/List" class="list-group-item" data-parent="#menu6">
+                                <i class="fas fa-address-card"></i>
+                                Przeglądaj dostępne grupy
+                            </a>
+
+                        </div>
+                        <a href="#menu7" class="list-group-item collapsed" data-parent="#sidebar" data-toggle="collapse" aria-expanded="false">
+                            <i class="fas fa-history"></i>
+                            <span class="hidden-sm-down">Historia</span>
+                        </a>
+                        <div class="collapse" id="menu7">
+                            <a href="/User/History" class="list-group-item" data-parent="#menu8">
+                                <i class="fas fa-user-cog"></i>
+                                Zrealizowane zadania
+                            </a>
+
+                        </div>
+                        <a href="#menu8" class="list-group-item collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false">
+                            <i class="fas fa-cogs"></i>
+                            <span class="hidden-sm-down">Ustawienia</span>
+                        </a>
+                        <div class="collapse" id="menu8">
+                            <a href="/User/Data" class="list-group-item" data-parent="#menu8">
+                                <i class="fas fa-user-cog"></i>
+                                Twoje dane
+                            </a>
+                            <a href="/User/ForgotPassword" class="list-group-item" data-parent="#menu8">
+                                <i class="fas fa-lock"></i>
+                                Zmiana hasła
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class=".col-xs-12 .col-md-8" id="container">
+                <div id="top1">
+                    <div id="logo">
+                        <a href="#sidebar" data-toggle="collapse">
+                            <i class="fas fa-bars"></i>
+                        </a>
+                        LOGO
+                    </div>
+                    <div id="right-panel">
+                        @if (HttpContext.Current.User.Identity.Name == "".ToString())
+                        {
+                            <div class="r1">@Html.ActionLink("Zaloguj", "Login", "User", new object { }, new { @class = "rlink" })</div>
+                            <div class="r1">@Html.ActionLink("Zarejestruj", "Registration", "User", new object { }, new { @class = "rlink" })</div>
+                        }
+                        else
+                        {
+                            <div class="r1">Witaj <b>@HttpContext.Current.User.Identity.Name!</b></div>
+                            <div class="r1">
+                                @if (Request.IsAuthenticated)
+                                {
+                                    @Html.ActionLink("Wyloguj", "Logout", "User", new object { }, new { @class = "rlink" })
+                                }
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div style="clear:both"></div>
+                <div id="menu">
+                        <a href="@Url.Action("Index","Home")"><div class="option">Główna</div></a>
+                        <a href="@Url.Action("About","Home")"><div class="option">O Nas</div></a>
+                        <a href="@Url.Action("Contact","Home")"><div class="option">Kontakt</div></a>
+
+                    <div style="clear:both"></div>
+                </div>
+
+                <div id="content">
+                    @RenderBody()
+
+                </div>
+                <div style="clear:both"></div>
+                <div id="footer">
+                    Copyright &copy; 2019
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

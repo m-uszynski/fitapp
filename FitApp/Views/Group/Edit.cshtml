@@ -1,0 +1,58 @@
+﻿@model FitApp.Models.Group
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="userform">
+    <h3>Edytuj grupę</h3>
+    <hr />
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true, "")
+    
+        <div>
+
+            <div>
+                @Html.LabelFor(m => m.GroupName)
+                <div>
+                    @Html.TextBoxFor(m=>m.GroupName,new { @Value = @ViewBag.GroupName})
+                    @Html.ValidationMessageFor(m => m.GroupName)
+                </div>
+            </div>
+
+            <div>
+                @Html.LabelFor(m => m.GroupType)
+                <div>
+                    @if (@ViewBag.GroupType == "Private")
+                    {
+                        @:<div>
+                            @:Publiczna @Html.RadioButtonFor(m => m.GroupType, "Public")
+                            @:Prywatna @Html.RadioButtonFor(m => m.GroupType, "Private", new { @checked = true })
+                        @:</div>
+                    }
+                    else if (@ViewBag.GroupType == "Public")
+                    {
+                        @:<div>
+                            @:Publiczna @Html.RadioButtonFor(m => m.GroupType, "Public", new { @checked = true })
+                            @:Prywatna @Html.RadioButtonFor(m => m.GroupType, "Private")
+                        @:</div>
+                    }
+
+
+                </div>
+            </div>
+
+            <div>
+                <input type="submit" class="submitbutton" value="Uaktualnij" />
+            </div>
+
+        </div>
+    }
+
+</div>

@@ -1,0 +1,43 @@
+﻿@model FitApp.Models.Task
+
+@{
+    ViewBag.Title = "Edytuj";
+}
+
+<h2>Edycja</h2>
+<div class="text-success">
+    @ViewBag.Message
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="userform">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Description, new { @Value = ViewBag.Description })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RealizationTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.RealizationTime, new { @Value = ViewBag.RealizationTime })
+                @Html.ValidationMessageFor(model => model.RealizationTime, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Uaktualnij" class="submitbutton" />
+            </div>
+        </div>
+    </div>
+}

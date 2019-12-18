@@ -1,0 +1,135 @@
+﻿@model FitApp.Models.Measurment
+
+@{
+    ViewBag.Title = "View";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true, "")
+
+    @ViewBag.Message
+    <br />
+    <div class="userform">
+        <div>
+            @Html.LabelFor(m=>m.MeasurmentDate)
+            <div>
+                @Html.TextBoxFor(m=>m.MeasurmentDate,new { @Value = @ViewBag.MeasurmentDate})
+                @Html.ValidationMessageFor(m=>m.MeasurmentDate)
+            </div>
+        </div>
+
+
+        <div>
+            @Html.LabelFor(m => m.Weight)
+            <div>
+                @Html.TextBoxFor(m => m.Weight, new { @Value = @ViewBag.Weight })
+                @Html.ValidationMessageFor(m => m.Weight)
+            </div>
+        </div>
+
+
+        <div>
+            @Html.LabelFor(m => m.Height)
+            <div>
+                @Html.TextBoxFor(m => m.Height, new { @Value = @ViewBag.Height })
+                @Html.ValidationMessageFor(m => m.Height)
+            </div>
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.BicepsCircuit)
+            <div>
+                @Html.TextBoxFor(m => m.BicepsCircuit, new { @Value = @ViewBag.BicepsCircuit })
+                @Html.ValidationMessageFor(m => m.BicepsCircuit)
+            </div>
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.ThighCircuit)
+            <div>
+                @Html.TextBoxFor(m => m.ThighCircuit, new { @Value = @ViewBag.ThighCircuit })
+                @Html.ValidationMessageFor(m => m.ThighCircuit)
+            </div>
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.WeistCircuit)
+            <div>
+                @Html.TextBoxFor(m => m.WeistCircuit, new { @Value = @ViewBag.WeistCircuit })
+                @Html.ValidationMessageFor(m => m.WeistCircuit)
+            </div>
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.ChestCircuit)
+            <div>
+                @Html.TextBoxFor(m => m.ChestCircuit, new { @Value = @ViewBag.ChestCircuit })
+                @Html.ValidationMessageFor(m => m.ChestCircuit)
+            </div>
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.HipsCircuit)
+            <div>
+                @Html.TextBoxFor(m => m.HipsCircuit, new { @Value = @ViewBag.HipsCircuit })
+                @Html.ValidationMessageFor(m => m.HipsCircuit)
+            </div>
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.ShouldersCircuit)
+            <div>
+                @Html.TextBoxFor(m => m.ShouldersCircuit, new { @Value = @ViewBag.ShouldersCircuit })
+                @Html.ValidationMessageFor(m => m.ShouldersCircuit)
+            </div>
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.ActivityLevel)
+            <div>
+                @{
+                    List<SelectListItem> listItems = new List<SelectListItem>();
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Znikomy",
+                        Value = "Znikomy"
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Niski",
+                        Value = "Niski",
+                        Selected = true
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Średni",
+                        Value = "Średni"
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Wysoki",
+                        Value = "Wysoki"
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Bardzo Wysoki",
+                        Value = "Bardzo Wysoki"
+                    });
+                }
+
+                @Html.DropDownListFor(model => model.ActivityLevel, listItems)
+
+            </div>
+        </div>
+
+        <div>
+            <input type="submit" value="Uaktualnij" class="submitbutton" />
+        </div>
+    </div>
+
+
+
+}

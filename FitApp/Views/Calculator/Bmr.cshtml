@@ -1,0 +1,116 @@
+﻿@model FitApp.Models.Measurment
+
+@{
+    ViewBag.Title = "Bmr";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="userform">
+    <h3>Wskaźnik BMR</h3>
+    <hr />
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true, "")
+
+    <div>
+        <div>
+            @Html.LabelFor(m => m.Users.Sex)
+            <div>
+                @if (ViewBag.Sex == "Female")
+                {
+                    @:<strong>Kobieta</strong>
+                }
+                else if (ViewBag.Sex == "Male")
+                {
+                    @:<strong>Mężczyzna</strong>
+                }
+            </div>
+
+        </div>
+
+        <div>
+            @Html.Label("Wiek")
+            <div>
+                <strong>@ViewBag.Age</strong>
+            </div>
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.Weight)
+            <div>
+                @Html.TextBoxFor(m => m.Weight, new { @Value = @ViewBag.Weight })
+                @Html.ValidationMessageFor(m => m.Weight)
+            </div>
+        </div>
+
+
+        <div>
+            @Html.LabelFor(m => m.Height)
+            <div>
+                @Html.TextBoxFor(m => m.Height, new { @Value = ViewBag.Height })
+                @Html.ValidationMessageFor(m => m.Height)
+            </div>
+        </div>
+
+
+        <div>
+            @Html.LabelFor(m => m.ActivityLevel)
+            <div>
+                @{
+                    List<SelectListItem> listItems = new List<SelectListItem>();
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Znikomy",
+                        Value = "Znikomy"
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Niski",
+                        Value = "Niski",
+                        Selected = true
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Średni",
+                        Value = "Średni"
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Wysoki",
+                        Value = "Wysoki"
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Bardzo Wysoki",
+                        Value = "Bardzo Wysoki"
+                    });
+                }
+
+                @Html.DropDownListFor(model => model.ActivityLevel, listItems,new { @Value=ViewBag.ActivityLevel})
+
+            </div>
+        </div>
+
+
+        <div>
+            <input type="submit" class="submitbutton" value="Oblicz" />
+        </div>
+        <div>
+            @if (ViewBag.Weight != null && ViewBag.Height != null && ViewBag.ActivityLevel != null)
+            {
+                @:Twoje BMR wynosi:<strong>@ViewBag.BMR</strong><br />
+                @:W celu utrzymania wagi musisz spożywać: <strong>@ViewBag.ActivityBMR</strong>
+                @:<strong>@ViewBag.Message</strong>
+            }
+            
+
+        </div>
+
+    </div>
+
+    }
+
+</div>

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<FitApp.Models.Exercise>
+
+@{
+    ViewBag.Title = "UserExerciseList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista ćwiczen w treningu - [@ViewBag.exname]</h2>
+
+<p>
+    @Html.ActionLink("Wróć do treningów użytkownika", "UserTrainingList", new { Id = ViewBag.userId }, new { @class = "btn btn-info" })
+</p>
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ExerciseName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VideoLink)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BurnedCalories)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.ExerciseName
+            </td>
+            <td>
+                @item.VideoLink
+            </td>
+            <td>
+                @item.BurnedCalories
+            </td>
+            <td>
+                @item.Description
+            </td>
+        </tr>
+    }
+</table>

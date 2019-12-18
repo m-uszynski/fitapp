@@ -1,0 +1,47 @@
+﻿@model FitApp.Models.Training
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="userform">
+
+    <h3>Edytuj trening</h3>
+    <hr />
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true,"")
+
+        <div>
+
+            <div>
+
+                @Html.LabelFor(m=>m.TrainingName)
+                <div>
+                    @Html.TextBoxFor(m=>m.TrainingName, new { @Value = @ViewBag.TrainingName } )
+                    @Html.ValidationMessageFor(m=>m.TrainingName)
+                </div>
+
+            </div>
+
+            <div>
+
+                @Html.LabelFor(m=>m.TrainingTime)
+                <div>
+                    @Html.TextBoxFor(m=>m.TrainingTime, new { @Value = @ViewBag.TrainingTime })
+                    @Html.ValidationMessageFor(m=>m.TrainingTime)
+                </div>
+
+            </div>
+            <div>
+                <input type="submit" value="Uaktualnij" class="submitbutton" />
+            </div>
+
+        </div>
+    }
+
+</div>
+

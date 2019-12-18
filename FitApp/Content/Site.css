@@ -1,0 +1,194 @@
+﻿body {
+    background-color: #e6eeff;
+    font-family: 'Lato', sans-serif;
+}
+#container
+{
+    width:1000px;
+    margin-left:auto;
+    margin-right:auto;
+}
+#top1 {
+    width: 960px;
+    height: 60px;
+    margin-left: 15px;
+    margin-right: 15px;
+    position: relative;
+}
+#logo{
+    float: left;
+    width: 600px;
+    color:black;
+    margin-top:20px;
+    font-size:30px;
+    letter-spacing:3px;
+    font-weight:100;
+}
+#right-panel{
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+}
+
+.r1 {
+    float: left;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    text-align: center;
+}
+
+.rlink:hover {
+    color: #4d4dff;
+}
+
+.registerlink:link, .registerlink:visited, .registerlink:active{
+    color: #4d4dff;
+}
+
+.registerlink:hover{
+    color: hotpink;
+}
+
+.deletelink:link, .deletelink:visited, .deletelink:active{
+    color: #d94633;
+}
+
+.deletelink:hover{
+    color: #922228; 
+}
+
+#menu {
+    background-color: #78A8FF;
+    margin-top: 10px;
+    color: #ffffff;
+    padding: 15px;
+    font-weight: 600;
+    border-radius: 20px 20px 0px 0px;
+    min-height: 50px;
+}
+
+#content
+{
+    float:left;
+    padding:40px;
+    background-color:#dedede;
+    min-height:381px;
+    text-align:justify;
+    min-width:100%;
+}
+
+.option
+{
+    float:left;
+    min-width:50px;
+    height:50px;
+    font-size:15px;
+    display: block;
+    line-height: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    border-right: medium #333333;
+}
+.option:hover
+{
+    background-color: #78CDFF;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+a:visited, a:link, a:active{
+    color: #000000;
+    font-size:15px;
+    text-decoration: none;
+}
+
+#footer {
+    background-color: #78A8FF;
+    color: black;
+    padding: 10px;
+    font-size: 15px;
+    letter-spacing: 3px;
+    font-weight: 500;
+    text-align: center;
+    padding-top: 12px;
+    min-height: 20px;
+    border-radius: 0px 0px 20px 20px;
+}
+
+#Login, #Password, #Name, #Surname, #Email, #BirthDay, #ConfirmPassword, #Sex {
+    width: 300px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.submitbutton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submitbutton:hover {
+    background-color: #45a049;
+}
+
+.userform{
+    width: 300px;
+    margin: 0 auto;
+}
+
+/* sub sidebar */
+#sidebar .list-group .collapse .list-group-item {
+    padding-left: 40px;
+}
+
+/* sub sub sidebar */
+#sidebar .list-group .collapse > .collapse .list-group-item {
+    padding-left: 80px;
+}
+
+#sidebar .list-group {
+    width: 250px;
+}
+
+#sidebar.collapse {
+    -webkit-transition-timing-function: ease;
+    -o-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: .2s;
+    -o-transition-duration: .2s;
+    transition-duration: .2s;
+}
+
+#sidebar.collapsing {
+    opacity: 0.8;
+    width: 0;
+    -webkit-transition-timing-function: ease-in;
+    -o-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+    -webkit-transition-property: width;
+    -o-transition-property: width;
+    transition-property: width;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}

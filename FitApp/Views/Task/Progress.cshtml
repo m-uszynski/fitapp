@@ -1,0 +1,42 @@
+﻿@model IEnumerable<FitApp.Models.Task>
+
+@{
+    ViewBag.Title = "Progress";
+}
+
+<h2>Progress</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RealizationTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m=>m.ChallengeId)
+        </th>
+
+        <th></th>
+    </tr>
+  
+   
+@foreach (var item in Model) {
+    
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RealizationTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChallengeId)
+        </td>
+
+    </tr>
+}
+
+</table>

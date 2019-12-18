@@ -1,0 +1,57 @@
+﻿@model IEnumerable<FitApp.Models.Food>
+
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Produkty</h2>
+<p>
+    @Html.ActionLink("Wróć do listy posiłków", "List", "Meal", null, new { @class = "btn btn-info" })
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FoodName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Calories)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Proteins)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Carbs)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoodName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Calories)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proteins)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Carbs)
+            </td>
+            <td>
+                @Html.ActionLink("Wybierz", "Select", new { Id = item.Id }, new { @class = "checkbox btn btn-primary" })
+            </td>
+        </tr>
+    }
+
+</table>

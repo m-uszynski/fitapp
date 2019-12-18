@@ -1,0 +1,70 @@
+﻿@model IEnumerable<FitApp.Models.Food>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>
+    Kompozycja posiłku: @ViewBag.mName
+</h2>
+
+<p>
+    @Html.ActionLink("Wróć do listy posiłków", "List", "Meal", null, new { @class = "btn btn-info" })
+    @Html.ActionLink("Skomponuj posiłek", "Compose", null, new { @class = "btn btn-info" })
+    @if (@ViewBag.uType == "admin")
+    {
+        @Html.ActionLink("Dodaj produkt (ADMIN)", "AddProduct", null, new { @class = "btn btn-info" })
+    }
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FoodName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Calories)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Proteins)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Carbs)
+        </th>
+        <th></th>
+    </tr>
+   @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FoodName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Calories)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Proteins)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Carbs)
+        </td>
+        <td>
+            @Html.ActionLink("Usuń", "DeleteFood", new { id = item.Id }, new { @class = "btn btn-danger" })
+        </td>
+        @if (@ViewBag.uType == "admin")
+        {
+         <td>
+            @Html.ActionLink("Edytuj (admin)", "EditProduct", new { id = item.Id }, new { @class = "btn btn-warning" })
+         </td>
+        }
+    </tr>
+    }
+
+</table>

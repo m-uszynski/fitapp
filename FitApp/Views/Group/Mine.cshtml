@@ -1,0 +1,68 @@
+﻿@model IEnumerable<FitApp.Models.Group>
+
+@{
+    ViewBag.Title = "Mine";
+}
+
+<h2>Moje grupy</h2>
+<br />
+@ViewBag.Message
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(m=>m.GroupName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m=>m.GroupType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m=>m.MembersCount)
+        </th>
+ 
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @item.GroupName
+        </td>
+        <td>
+            @item.GroupType
+        </td>
+        <td>
+            @item.MembersCount
+        </td>
+
+        @if (item.AdminId.Equals(ViewBag.UserId))
+        {
+        <td>
+            @Html.ActionLink("Usuń grupę", "Delete", new { Id = item.Id }, new { @class = "btn btn-danger" })
+            <br />
+            @Html.ActionLink("Edytuj", "Edit", new { Id = item.Id }, new { @class = "btn btn-primary" })
+            <br />
+            @Html.ActionLink("Szczegóły", "Details", new { Id = item.Id }, new { @class = "btn btn-info" })
+            <br />
+            @Html.ActionLink("Wyzwania", "List", "Challenge", new { Id = item.Id }, new { @class = "btn btn-success" })
+            <br />
+        </td>
+        }
+        else
+        {
+
+        <td>
+            @Html.ActionLink("Wypisz mnie", "Unenrol", new { Id = item.Id }, new { @class = "btn btn-danger" })
+            <br />
+            @Html.ActionLink("Wyzwania", "List", "Challenge", new { Id = item.Id }, new { @class = "btn btn-success" })
+
+        </td>
+        }
+
+
+
+    </tr>
+    }
+</table>
+
+

@@ -1,0 +1,87 @@
+﻿@model IEnumerable<FitApp.Models.Measurment>
+@{
+    ViewBag.Title = "History";
+}
+
+<h2>Historia pomiarów</h2>
+<br />
+@ViewBag.Message
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MeasurmentDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Weight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Height)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BicepsCircuit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ThighCircuit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WeistCircuit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChestCircuit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HipsCircuit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShouldersCircuit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActivityLevel)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @item.MeasurmentDate.ToShortDateString()
+        </td>
+        <td>
+            @item.Weight
+        </td>
+        <td>
+            @item.Height
+        </td>
+        <td>
+            @item.BicepsCircuit
+        </td>
+        <td>
+            @item.ThighCircuit
+        </td>
+        <td>
+            @item.WeistCircuit
+        </td>
+        <td>
+            @item.ChestCircuit
+        </td>
+        <td>
+            @item.HipsCircuit
+        </td>
+        <td>
+            @item.ShouldersCircuit
+        </td>
+        <td>
+            @item.ActivityLevel
+        </td>
+
+        <td>
+            @Html.ActionLink("Usuń", "Delete", new { Id = item.Id }, new { @class = "btn btn-danger" })
+            <br />
+            @Html.ActionLink("Edytuj", "Edit", new { Id = item.Id }, new { @class = "btn btn-primary" })
+        </td>
+
+    </tr>
+    }
+</table>
+

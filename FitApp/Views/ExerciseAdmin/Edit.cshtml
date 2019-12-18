@@ -1,0 +1,58 @@
+﻿@model FitApp.Models.ExerciseAdmin
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edycja</h2>
+
+<div class="userform">
+    <h3>Edytuj ćwiczenie</h3>
+    <hr />
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "")
+
+        <div>
+
+            <div>
+                @Html.LabelFor(m => m.ExerciseName)
+                <div>
+                    @Html.TextBoxFor(m => m.ExerciseName, new { @Value = @ViewBag.ExerciseName })
+                    @Html.ValidationMessageFor(m => m.ExerciseName)
+                </div>
+            </div>
+
+            <div>
+                @Html.LabelFor(m => m.VideoLink)
+                <div>
+                    @Html.TextBoxFor(m => m.VideoLink, new { @Value = @ViewBag.VideoLink })
+                    @Html.ValidationMessageFor(m => m.VideoLink)
+                </div>
+            </div>
+
+            <div>
+                @Html.LabelFor(m => m.BurnedCalories)
+                <div>
+                    @Html.TextBoxFor(m => m.BurnedCalories, new { @Value = @ViewBag.BurnedCalories })
+                    @Html.ValidationMessageFor(m => m.BurnedCalories)
+                </div>
+            </div>
+
+            <div>
+                @Html.LabelFor(m => m.Description)
+                <div>
+                    @Html.TextBoxFor(m => m.Description, new { @Value = @ViewBag.Description })
+                    @Html.ValidationMessageFor(m => m.Description)
+                </div>
+            </div>
+
+
+            <div>
+                <input type="submit" value="Uaktualnij" class="submitbutton" />
+            </div>
+        </div>
+    }
+</div>

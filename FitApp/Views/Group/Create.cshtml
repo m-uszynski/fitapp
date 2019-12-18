@@ -1,0 +1,46 @@
+﻿@model FitApp.Models.Group
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="userform">
+    <h3>Stwórz grupę</h3>
+    @ViewBag.Message
+    <hr />
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true, "")
+
+        <div>
+
+            <div>
+                @Html.LabelFor(m=>m.GroupName)
+                <div>
+                    @Html.EditorFor(m=>m.GroupName)
+                    @Html.ValidationMessageFor(m=>m.GroupName)
+                </div>
+            </div>
+
+            <div>
+                @Html.LabelFor(m=>m.GroupType)
+                <div>
+                    Publiczna @Html.RadioButtonFor(m => m.GroupType, "Public")
+                    Prywatna  @Html.RadioButtonFor(m => m.GroupType, "Private")
+
+                </div>
+            </div>
+
+            <div>
+                <input type="submit" class="submitbutton" value="Stwórz" />
+            </div>
+
+        </div>
+    }
+
+</div>
+

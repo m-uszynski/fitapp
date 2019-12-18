@@ -1,0 +1,141 @@
+﻿@model FitApp.Models.Measurment
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="userform">
+    <h3>Pomiary</h3>
+    <hr />
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true,"")
+
+    <div>
+
+        <div>
+            @Html.LabelFor(m => m.MeasurmentDate)
+            <div>
+                @Html.EditorFor(m => m.MeasurmentDate)
+                @Html.ValidationMessageFor(m => m.MeasurmentDate)
+            </div>
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.Weight)
+            <div>
+                @Html.EditorFor(m => m.Weight)
+                @Html.ValidationMessageFor(m => m.Weight)
+            </div>
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.Height)
+            <div>
+                @Html.EditorFor(m => m.Height)
+                @Html.ValidationMessageFor(m => m.Height)
+            </div>
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.BicepsCircuit)
+            <div>
+                @Html.EditorFor(m => m.BicepsCircuit)
+                @Html.ValidationMessageFor(m => m.BicepsCircuit)
+            </div>
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.ThighCircuit)
+            <div>
+                @Html.EditorFor(m => m.ThighCircuit)
+                @Html.ValidationMessageFor(m => m.ThighCircuit)
+            </div>
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.WeistCircuit)
+            <div>
+                @Html.EditorFor(m => m.WeistCircuit)
+                @Html.ValidationMessageFor(m => m.WeistCircuit)
+            </div>
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.ChestCircuit)
+            <div>
+                @Html.EditorFor(m => m.ChestCircuit)
+                @Html.ValidationMessageFor(m => m.ChestCircuit)
+            </div>
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.HipsCircuit)
+            <div>
+                @Html.EditorFor(m => m.HipsCircuit)
+                @Html.ValidationMessageFor(m => m.HipsCircuit)
+            </div>
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.ShouldersCircuit)
+            <div>
+                @Html.EditorFor(m => m.ShouldersCircuit)
+                @Html.ValidationMessageFor(m => m.ShouldersCircuit)
+            </div>
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.ActivityLevel)
+            <div>
+                @{
+                    List<SelectListItem> listItems = new List<SelectListItem>();
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Znikomy",
+                        Value = "Znikomy"
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Niski",
+                        Value = "Niski",
+                        Selected = true
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Średni",
+                        Value = "Średni"
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Wysoki",
+                        Value = "Wysoki"
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Bardzo Wysoki",
+                        Value = "Bardzo Wysoki"
+                    });
+                }
+
+                @Html.DropDownListFor(model => model.ActivityLevel, listItems)
+
+            </div>
+        </div>
+        
+ 
+
+        <div>
+            <input type="submit" value="Dodaj pomiar" class="submitbutton" />
+        </div>
+    </div>
+
+
+    
+    }
+
+</div>
+

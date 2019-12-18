@@ -1,0 +1,34 @@
+﻿@model FitApp.Models.User
+
+@{
+    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VerifyAccount</title>
+</head>
+<body>
+    <div>
+        <h2>Verify Account</h2>
+        @if (ViewBag.Status != null && Convert.ToBoolean(ViewBag.Status))
+        {
+            <div class="alert alert-success">
+                <strong>Success!</strong>
+                <br />
+                Your Account has been activated. Click here to @Html.ActionLink("Login", "Login", "User", new object { }, new { @class = "registerlink" })
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-danger">
+                <strong>Error</strong>@ViewBag.Message
+            </div>
+        }
+    </div>
+</body>
+</html>
