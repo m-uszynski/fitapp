@@ -1,4 +1,4 @@
-# myCookBook
+# FitApp
 ![Status](https://img.shields.io/badge/Status-DONE-green.svg)<br/><br/>
 This is a FitApp - web application which allows to monitor users' lifestyles. 
 The FitApp allows users to plan - daily calories, meals, trenings etc.
